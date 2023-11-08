@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class Exercise1 : MonoBehaviour
 {
@@ -27,9 +29,16 @@ public class Exercise1 : MonoBehaviour
     {
         transform.Translate(direction * speed * Time.deltaTime);
         //Start the ChangeDirection coroutine if the A key is pressed.
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            StartCoroutine(ChangeDirection());
+        }
        
-
+        IEnumerator ChangeDirection()
+        {
+            yield return new WaitForSeconds(2);
+            
+        }
        
     }
 
